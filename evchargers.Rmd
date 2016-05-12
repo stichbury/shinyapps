@@ -19,7 +19,7 @@ Owners of electric vehicles (EVs) sometimes suffer from "range anxiety". This is
 
 The application is deployed on a shiny server at: https://stichbury.shinyapps.io/evchargers/
 
-The code is stored on github at:
+The code is stored on github at: https://github.com/stichbury/shinyapps/
 
 Part 2 of the assignment (the application pitch) is at: http://rpubs.com/stichbury/180428
 
