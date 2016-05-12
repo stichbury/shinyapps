@@ -1,0 +1,45 @@
+---
+title: "EV Chargers Documentation"
+output: html_document
+author: Jo Stichbury
+---
+
+## Introduction
+
+This is the documentation for the Developing Data Products assignment. The assignment is in two parts, instructions are as follows:
+
+*"First, you will create a Shiny application and deploy it on Rstudio's servers. Second, you will use Slidify or Rstudio Presenter to prepare a reproducible pitch presentation about your application"*
+
+This documentation is for the first part of the assignment - the Shiny application and covers what you need to get started using the application.
+
+### The EV Chargers application
+Owners of electric vehicles (EVs) sometimes suffer from "range anxiety". This is where they worry about whether their car has sufficient battery charge to get to where they want to go, and back. Fortunately, there are plenty of public charging stations in the UK, and this app is designed to help find them.
+
+### How to find and use the application
+
+The application is deployed on a shiny server at: https://stichbury.shinyapps.io/evchargers/
+
+The code is stored on github at:
+
+Part 2 of the assignment (the application pitch) is at: http://rpubs.com/stichbury/180428
+
+The UI consists of a textbox and a slider. 
+The textbox is used to enter a UK postcode (and some example postcodes are given in help text below, for those users who do not know any UK postcodes). Sample postcodes may be created here: https://www.doogal.co.uk/PostCodeGenerator.php
+
+The application code finds 3 locations of chargers that are within 20 miles of that postcode. It plots them in red on a map, which can be zoomed in and out, using the slider. The postcode entered in the textbox is shown on the map in blue.  Finally, below the map, the application lists the names and post codes of each charging station.
+
+**NOTE: The maps are quite slow to load. Please be patient!**
+
+### Details
+
+The application uses Shiny.  
+
+1. ui.R is relatively straightforward, and has code for the text input box and slider, plus a separate panel to display the map and charger location information.   
+2. server.R uses reactive({}) statements to call a web API provided by the UK National Charge Point Registry (NCR). More information https://data.gov.uk/dataset/national-charge-point-registry. It uses the postcode entered into the text box, and reads the returned CSV data. It then draws a map, centered on the postcode in question, plotting the nearest charger locations. The map is at the zoom level given by the slider, and updates as the slider changes. It also updates as the postcode changes.  The calculations performed by server.R are (1) API call and (2) Map display of data points.
+
+### Conclusion
+
+The app is for those drivers who are UK-based only. The project could be enhanced by finding worldwide datasets or the UI could be updated to allow the user to select a country of interest, and different datasets used as necessary.
+
+Other potential enhancements to the app are listed in the pitch presentation at http://rpubs.com/stichbury/180428
+
